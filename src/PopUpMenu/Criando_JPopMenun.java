@@ -8,6 +8,10 @@ import java.awt.Component;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Criando_JPopMenun {
 
@@ -45,18 +49,47 @@ public class Criando_JPopMenun {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPopupMenu menuPrincipal = new JPopupMenu();
+		menuPrincipal.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+			}
+		});
 		addPopup(frame.getContentPane(), menuPrincipal);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Contabilidade");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JOptionPane.showMessageDialog(null, "Contabilidade");
+			}
+		});
 		menuPrincipal.add(mntmNewMenuItem);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Compras");
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JOptionPane.showMessageDialog(null, "Compras");
+			}
+		});
 		menuPrincipal.add(mntmNewMenuItem_1);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("RH");
+		mntmNewMenuItem_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JOptionPane.showMessageDialog(null, "RH");
+			}
+		});
 		menuPrincipal.add(mntmNewMenuItem_2);
 		
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Tesouraria");
+		mntmNewMenuItem_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				JOptionPane.showMessageDialog(null, "Tesouraria");
+			}
+		});
 		menuPrincipal.add(mntmNewMenuItem_3);
 		frame.getContentPane().setLayout(null);
 	}
@@ -67,6 +100,7 @@ public class Criando_JPopMenun {
 					showMenu(e);
 				}
 			}
+			//mouseReleased - Quando eu clicar com o botão direito do mouse
 			public void mouseReleased(MouseEvent e) {
 				if (e.isPopupTrigger()) {
 					showMenu(e);
